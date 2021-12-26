@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SandoWebMainPage</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+    <script>
+        // 내리는거
+        $(document).ready(function () {
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+        
+    </script>
+
+
+<!-- 드롭다운 -->
+    <style>
+        .outer-menu {
+            float: right;
+            width: 100px; height: 20px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            z-index: 9999;
+        }
+        .outer-menu:hover { background: rgb(35,35,35); }
+        .inner-menu {
+            display: none;
+            background: rgb(30,30,30);
+            margin-top: 10px;
+            width: 100%;
+            left : -50px;
+            border-top: 1px solid rgb(30,30,30);
+            box-shadow: 0 2px 4px rgba(34,25,25,0.5);
+        }
+        .inner-menu a {
+            display: block;
+            padding: 5px 0;
+            z-index: 5000;
+        }
+        .inner-menu a:hover { background: rgb(35,35,35); }
+    </style>
+    <!--바디 메인 스타일-->
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 40%;
+            margin: 0 auto;
+            margin-left: 2%;
+            overflow: hidden;
+            float:left;
+        }
+        #sub2 {
+            width: 37%;
+            margin: 0 auto;
+            margin-right: 5%;
+            float:right;
+            margin-left: 14%;
+        }
+        #sub3 {
+            width: 30%;
+            margin: 0 auto;
+            margin-right: 5%;
+            float:right;
+            margin-left: 14%;
+        }
+        #weather {
+            width: 39%;
+            margin: 0 auto;
+            margin-right: 3%;
+            float:right;
+            margin-left: 14%;
+            background-color: #fffeed;
+            border: 7px solid rgb(255,254,161);
+        }
+        .RightBar {
+            background: #171717;
+            position: fixed;
+            right: 0; top: 50px; bottom: 50px;
+            width: 80px;
+            border-radius: 30px;
+        }
+        .circle {
+            position: absolute;
+            width: 40px; height: 40px;
+            border-radius: 50% 50%
+        }
+        #side10{
+            right: 24px;
+            top: 10%;
+        }
+        #side20{
+            right: 24px;
+            top: 20%;
+        }
+        #side30{
+            right: 24px;
+            top: 30%;
+        }
+        #side40{                                        <!--만지지마-->
+            background: rgb(250,250,250);
+            right: 24px;
+            top: 39%;
+        }
+        #side50{
+            right: 24px;
+            top: 50%;
+        }
+        #side60{
+            right: 24px;
+            top: 60%;
+        }
+        #side70{
+            right: 24px;
+            top: 70%;
+        }
+        #side80{
+            background: rgb(250,250,250);
+            right: 24px;
+            top: 80%;
+        }
+        #side90{
+            right: 24px;
+            top: 90%;
+        }
+    </style>
+
+    <!--검색기능-->
+    <style>
+        .header-search-form {
+            height: 26px;
+            padding: 7px;
+        }
+        .input-search {
+            display: block;
+            float: left;
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 15px 0 0 15px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            width: 80%; height: 50px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+        .input-search:focus {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+        .input-search-submit {
+            display: block;
+            float: left;
+            width: 15%; height: 50px;
+            border-radius: 0 15px 15px 0;
+            border: 1px solid #CCCCCC;
+            margin-left: -1px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        #header-search-form{
+            position: absolute;
+            top:50%;
+            left:50%;
+            border: solid 1px #CCCCCC;
+        }
+        table, td {
+            border: 1px soild rgb(255,254,161)
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/913598754777608232/unknown.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://artlist.io'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive'">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="button" loop="-1" style="width: 50%; vertical-align: middle">
+        </div>
+    </div>
+
+    <div id="main">
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em"><abbr title="LibraryOfRuina, LobotomyCorp, LimbusCompany">2021년 - 강민혁 </p></font></a></abbr>
+        <center>
+        <h1 style="color:rgb(255,254,161);"><font size="7%">Sando Web</h1></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <div id="main">
+            <div class="header-search-form"> 
+                <form method=get action="http://www.google.co.kr/search" target="_blank" >
+                    <td><a href="http://www.google.co.kr/"></a>
+                        <input type=text name=q value=""class="input-search" />
+                        <input type=hidden name=ie value=UTF-8 />
+                        <input type=hidden name=oe value=UTF-8 />
+                        <input type=hidden name=hl value=ko />
+                        <input type=submit name=btnG class="input-search-submit" value="검색" />
+                </form> 
+            </div> 
+        </div> 
+        <br>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+    </center>
+    <div id="sub1">
+        <center>
+            <br>
+            <br>
+        <details>
+            <summary style="margin-right: 0px; color:rgb(255,254,161); " ><font size="6em"><b>보고서</summary></b></font>
+            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">2021년 여름방학, 2학기 보고서</p></font><br>
+            <details>
+                <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">교과</summary></font><br>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">국어</summary></font><br>
+                </details>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">과학</summary></font>
+                    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_과학_CMCAcToDc.html" style="margin-left: 13px; color:rgb(255,254,161);">CMCAcToDc</a><br>
+                    <br>
+                </details>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">사회</summary></font><br>
+                </details>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">역사</summary></font>
+                    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_역사_국립중앙박물관.html" style="margin-left: 13px; color:rgb(255,254,161);">국립중앙박물관</a><br>
+                    <br>
+                </details>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">정보</summary></font>
+                    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_정보_html기초.html" style="margin-left: 13px; color:rgb(255,254,161);">HTML5 기초</a><br>
+                    <br>
+                    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_정보_수행평가1.html" style="margin-left: 13px; color:rgb(255,254,161);">정보 수행</a><br>
+                    <br>
+                </details>
+            </details>
+            <br>
+            <details>
+                <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">비교과</summary></font><br>
+                <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_비교과_돌담조명만들기.html" style="margin-left: 13px; color:rgb(255,254,161);">돌담 조명 만들기</a><br>
+                <br>
+                <details>
+                    <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">4.3사건</summary></font><br>
+                </details>
+            </details>
+        </details>
+    <br><br>
+    <br><br>
+    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\3. 사진\핀터레스트 되는거.html" style="margin-right: 0px; color:rgb(255,254,161); " ><font size="6em"><b>사진</summary></b></font>
+    <br><br>
+    <br><br>
+    <br>
+    <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\4. 문학\4. 문학 메인.html" style="margin-right: 0px; color:rgb(255,254,161); " ><font size="6em"><b>문학</summary></b></font>
+</center>
+    </div>
+    
+
+    <!--날씨, 시간-->
+    <div id="weather">
+            <center>
+            <iframe width="100%" height="210" src="https://forecast.io/embed/#lat=33.5007&lon=126.5288&name=제주&color=#fffea1&font=arial&units=si" frameborder="0"></iframe>
+
+<script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","https://s.bookcdn.com//css/cl/bw-cl-c22.css?v=0.0.1"); document.getElementsByTagName("head")[0].appendChild(css_file); </script>
+    <div id="tw_22_2140117628">
+        <div style="width:200px; height:px; margin: 0 auto; align-items: center;"><a href="https://booked.kr/time/jeju-32868">제주</a>
+        </div>
+    </div>
+    <script type="text/javascript"> function setWidgetData_2140117628(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_2140117628 = -1; widgetSrc = "https://widgets.booked.net/time/info?ver=2;domid=593;type=22;id=2140117628;scode=124;city_id=32868;wlangid=24;mode=0;details=0;background=ffffff;border_color=ffffff;color=686868;add_background=ffffff;add_color=333333;head_color=ffffff;border=0;transparent=0"; var widgetUrl = location.href; widgetSrc += '&ref=' + widgetUrl; var wstrackId = ""; if (wstrackId) { widgetSrc += ';wstrackId=' + wstrackId + ';' } var timeBookedScript = document.createElement("script"); timeBookedScript.setAttribute("type", "text/javascript"); timeBookedScript.src = widgetSrc; document.body.appendChild(timeBookedScript); </script>
+</center>
+<Br>
+
+</div>
+<center>
+    <div id="sub2">
+        <br>
+        <table border="1"> 
+            <thead>
+                <tr>
+                    <th width="17%" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th style="color:rgb(255,254,161);" align="center">&nbsp;&nbsp;월&nbsp;&nbsp;</th>
+                    <th style="color:rgb(255,254,161);" align="center">&nbsp;&nbsp;화&nbsp;&nbsp;</th>
+                    <th style="color:rgb(255,254,161);" align="center">&nbsp;&nbsp;수&nbsp;&nbsp;</th>
+                    <th style="color:rgb(255,254,161);" align="center">&nbsp;&nbsp;목&nbsp;&nbsp;</th>
+                    <th style="color:rgb(255,254,161);" align="center">&nbsp;&nbsp;금&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">1교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">수학</td>
+                    <td style="color:rgb(255,254,161);" align="center">한문</td>
+                    <td style="color:rgb(255,254,161);" align="center">국사</td>
+                    <td style="color:rgb(255,254,161);" align="center">수학</td>
+                    <td style="color:rgb(255,254,161);" align="center">통사</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">2교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">국어</td>
+                    <td style="color:rgb(255,254,161);" align="center">통과</td>
+                    <td style="color:rgb(255,254,161);" align="center">영원</td>
+                    <td style="color:rgb(255,254,161);" align="center">과탐</td>
+                    <td style="color:rgb(255,254,161);" align="center">통과</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">3교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">영어</td>
+                    <td style="color:rgb(255,254,161);" align="center">영어</td>
+                    <td style="color:rgb(255,254,161);" align="center">미술</td>
+                    <td style="color:rgb(255,254,161);" align="center">체육</td>
+                    <td style="color:rgb(255,254,161);" align="center">국어</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">4교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">통과</td>
+                    <td style="color:rgb(255,254,161);" align="center">국어</td>
+                    <td style="color:rgb(255,254,161);" align="center">통사</td>
+                    <td style="color:rgb(255,254,161);" align="center">국어</td>
+                    <td style="color:rgb(255,254,161);" align="center">통과</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">5교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">국사</td>
+                    <td style="color:rgb(255,254,161);" align="center">국사</td>
+                    <td style="color:rgb(255,254,161);" align="center">자율</td>
+                    <td style="color:rgb(255,254,161);" align="center">영어</td>
+                    <td style="color:rgb(255,254,161);" align="center">정보</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center" colspan="6" ><a href="https://jeil.jje.hs.kr/jeil-h/19255/food" style="color:rgb(255,254,161);"><abbr title="오늘의 점심은?">점심</td></a></abbr>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">6교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">체육</td>
+                    <td style="color:rgb(255,254,161);" align="center">정보</td>
+                    <td style="color:rgb(255,254,161);" align="center">자율</td>
+                    <td style="color:rgb(255,254,161);" align="center">한문</td>
+                    <td style="color:rgb(255,254,161);" align="center">수학</td>
+                </tr>
+                <tr>
+                    <td style="color:rgb(255,254,161);" align="center">7교시</td>
+                    <td style="color:rgb(255,254,161);" align="center">통사</td>
+                    <td style="color:rgb(255,254,161);" align="center">수학</td>
+                    <td style="color:rgb(255,254,161);" align="center"></td>
+                    <td style="color:rgb(255,254,161);" align="center">진로</td>
+                    <td style="color:rgb(255,254,161);" align="center">진로</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div id="main">
+            <iframe src="chrome://dino" width="80%" height="1000px"></iframe>
+        <br><br><br>
+            <iframe src="https://classroom.google.com/u/0/h" width="80%" height="1000px"></iframe>
+        </div>
+
+
+        <br>
+
+        <script>
+            let today = new Date();   
+            let year = today.getFullYear(); // 년도
+            let month = today.getMonth() + 1;  // 월
+            let date = today.getDate();  // 날짜
+            document.write(year + '/' + month + '/' + date)
+        </script>
+        </center>
+
+    <div id="sub1">
+        <center>
+            <details>
+                <summary style="margin-left: 0px; color:rgb(255,254,161); "><font size="5em"><b>LobotomyCorp</summary></b></font>
+                <p style="margin-left: 13px; color:rgb(255,254,161); "><font size="4em">FACE THE FEAR, BUILD THE FUTURE.</p></font><br><br>
+                <details>
+                    <summary style="margin-left: 10px; color:rgb(255,254,161);"><font size="5em"><b>상층부</summary></b></font>
+                    <br><br>
+                    <details>
+                        <summary style="margin-left: 15px; color:rgb(255,254,161); "><font size="4em"><b>지휘팀</summary></b></font>
+                        <br>
+                        <img src="https://cdn.discordapp.com/attachments/870316184506077204/908212278657155102/unknown.png" style="width:100px;">
+                        <p style="margin-left: 13px; color:rgb(255,254,161); "><font size="4em">말쿠트 (Malkuth)</p></font>
+                        <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161); ">직원 및 환상체들을 감시하고 환상체 관리를 위한 지휘를 내리거나 기획을 하는 부서입니다. 이 부서에서는 격리소 곳곳을 비춰주는 CCTV들을 통해 즉각적인 명령을 내리거나 지휘를 통솔합니다. 이들은 자부심이 매우 세고 거만하기 때문에 다른 부서들과 사이가 원만하진 않습니다.</p></a>
+                    </details>
+                    <br>
+                    <details>
+                        <summary style="margin-left: 15px; color:rgb(255,254,161); "><font size="4em"><b>정보팀</summary></b></font>
+                        <br>
+                        <img src="https://cdn.discordapp.com/attachments/870316184506077204/908212162210701332/unknown.png" style="width:100px;">
+                        <p style="margin-left: 13px; color:rgb(255,254,161); "><font size="4em">예소드 (Yesod)</p></font>
+                        <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161); ">환상체들의 위험도와 특징들을 분류하고 이에 대한 해결법을 강구해내는 부서입니다. 복지 관리팀에서부터 나오는 관찰 기록이나 상담 기록들을 토대로 해결법을 연구해 나갑니다. 좀 더 명확하고 안전한 [해결법]을 위해 각종 실험들을 진행하기도 합니다. 이들이 조사한 모든 환상체 정보들은 그저 책상머리 앞에서 생겨났다기 보단 다 오랜 관찰과 수많은 희생 끝에 얻어진 값진 노력 덕분입니다.</p></a>
+                    </details>
+                    <br>
+                    <details>
+                        <summary style="margin-left: 15px; color:rgb(255,254,161); "><font size="4em"><b>교육팀</summary></b></font>
+                        <br>
+                        <img src="https://cdn.discordapp.com/attachments/870316184506077204/908212230548504576/unknown.png" style="width:100px;">
+                        <p style="margin-left: 13px; color:rgb(255,254,161); "><font size="4em">호드 (Hod)</p></font>
+                        <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161); ">회사의 규율과 각종 관리지침을 작성 및 검토하는 부서입니다. 더불어 직원들이 부서를 옮기더라도 적응할 수 있도록 도와주는 범용적 훈련을 담당하고 있습니다.</p></a>
+                    </details>
+                    <br>
+                </details>
+                <br><br>
+        </details>
+
+        <center>
+            <details>
+                <summary style="margin-right: 0px; color:rgb(255,254,161);"><font size="5em"><b>LibraryOfRuina</summary></b></font>
+                <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">BOOK, LIBRARIAN, STAR AND CITY</p></font><br><br>
+                <details>
+                    <summary style="margin-right: 10px; color:rgb(255,254,161);"><font size="5em"><b>뜬소문</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/b3ab817a8d569e5002f4a58b0c8bc32d27a0d14c918fbf7a76e0ef15e2a40cb4c667499c09f27b19e50424cd828ca70513507244665b25e7efd848acdf27c076bda37bde69f62971510ec02ce6a56250e0463094be9b77af49fc19e2a3d38f6f" style="width:300px;">
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 뜬소문</p></font>
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><a href="https://ko.wikisource.org/wiki/하늘과_바람과_별과_시/길">'두 손이 주머니를 더듬어 길에 나아갑니다.'</p></a>
+                </details>
+                <br><br>
+                <details>
+                    <summary style="margin-right: 10px; color:rgb(255,254,161);"><b><font size="5em">도시 괴담</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/f47167999a440d740d5f2f0789b3e093a3c2d7d68db7ea0c8739097ce6239dff43815ebf04333231db1543395e8ec93fcba82240c2ccdf381ec5871274a74b801a6d2c16c6ac6084dfb66ec2906241bd42712d11bdfd1478ed15e345619334ee" style="width:300px;">
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 도시 괴담</p></font>
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><a href="https://ko.wikipedia.org/wiki/윤동주">'사람들은 해가 넘어가기 전<br>이 노래 끝의 공포를 생각할 사이가 없었다.'</p></a>
+                </details>
+                <br><br>
+                <details>
+                    <summary style="margin-right: 10px; color:rgb(255,254,161);"><b><font size="5em">도시 전설</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/165431023c1fdea5390c872142d33fcbb630d4218bbd0834f902e67845ac5d288118a331d87f095e9a639342bd26d5d3a0858c4c3d6877b87f4340a7e800be2ed863e6539976984cb526a8a6cde294292e1fa90a98d8a6c9c6b89172591184ec" style="width:300px;">
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 도시 전설</p></font>
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><a href="https://ko.wikipedia.org/wiki/윤동주">'나의 방에 품긴 제물의 위대한 향내를 맛보노라'</p></a>
+                </details>
+                <br><br>
+                <details>
+                    <summary style="margin-right: 10px; color:rgb(255,254,161);"><b><font size="5em">도시 질병</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/ed44d3955b31fa4289dff2987af61c5d762a1fdf7cdabb405d2db1ce12e3bc4a0b78c65ab82ecc4b0c49054dce6f5251b83c125c26557a934ab216ff44c422e446c3c66013d13a10b2021a9d2cc46c083c5dff8ebd32f09a34a0851661f0c6a4" style="width:300px;">
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 도시 질병</p></font>
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><a href="https://ko.wikisource.org/wiki/하늘과_바람과_별과_시/병원">'나한테는 병이 없다고 한다'</p></a>
+                </details>
+                <br><br>
+                <details>
+                    <summary style="margin-right: 10px; color:rgb(255,254,161);"><b><font size="5em">도시 악몽</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/18508bf9e9002044783fde13bf9ed83d7f0313b30a1cb45e71936d588c694f7ec7eb0c138b2461ff6d77f2cfbae6c17aba2179d5086794c4cc939f7b370a7c9ca9a17aa654b8ab1e4b64d9a5bb6ecaa6bb4585c8aa21a991c8db38c4fd614003" style="width:300px;">
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 도시 악몽</p></font>
+                    <p style="margin-right: 13px; color:rgb(255,254,161);"><a href="https://ko.wikipedia.org/wiki/윤동주">'꿈은 깨어졌다. 탑은 무너졌다.'</p></a>
+                </details>
+                <br><br>
+                <details>
+                    <summary style="margin-left: 10px; color:rgb(255,254,161);"><b><font size="5em">도시의 별</summary></b></font>
+                    <br>
+                    <img src="https://w.namu.la/s/cab57eb0e84642df9334f0f29f01da07b986616d9ea7f1c83c5fcd43e5dd428bc022c44b8cc7c50652561b7c4ea4003df73c4957900c7e3fe53f5fce58a59d51e64d7a56fcf7ad42aadae85d22d7a65bc3eda986d919a88cb8519090926d3d62" style="width:300px;">
+                    <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">LibraryOfRuina - 도시의 별</p></font>
+                    <p style="margin-left: 13px; color:rgb(255,254,161);"><a href="https://ko.wikisource.org/wiki/하늘과_바람과_별과_시/별_헤는_밤">'나는 별 하나에 아름다운 말 한마디씩 불러봅니다.'</p></a>
+                </details>
+            </details>
+        
+        
+    </div>
+</body>
+</html>

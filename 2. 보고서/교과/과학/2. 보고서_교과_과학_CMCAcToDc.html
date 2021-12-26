@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과목_과학_CMCAcToDc</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 38%;
+            margin: 0 auto;
+            margin-left: 8%;
+            overflow: hidden;
+            float:left;
+        }
+        #sub2 {
+            width: 38%;
+            margin: 0 auto;
+            margin-right: 2%;
+            float:right;
+            margin-left: 8%;
+            margin-right: 8%;
+            
+        }
+            .RightBar {
+                background: #171717;
+                position: fixed;
+                right: 0; top: 50px; bottom: 50px;
+                width: 80px;
+                border-radius: 30px;
+            }
+            .circle {
+                position: absolute;
+                width: 40px; height: 40px;
+                border-radius: 50% 50%
+            }
+            #side10{
+                right: 24px;
+                top: 10%;
+            }
+            #side20{
+                right: 24px;
+                top: 20%;
+            }
+            #side30{
+                right: 24px;
+                top: 30%;
+            }
+            #side40{                                        <!--만지지마-->
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 39%;
+            }
+            #side50{
+                right: 24px;
+                top: 50%;
+            }
+            #side60{
+                right: 24px;
+                top: 60%;
+            }
+            #side70{
+                right: 24px;
+                top: 70%;
+            }
+            #side80{
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 80%;
+            }
+            #side90{
+                right: 24px;
+                top: 90%;
+            }
+    </style>
+</head>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://www.projectmoon.kr/main/index.php'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" loop="-1" style="width: 100%; vertical-align: middle">
+        </div>
+
+    </div>
+
+    <div id="main">
+        <!--날짜 넣기-->
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em">2021년 11월 9일 - 강민혁 </p></font></a>
+        <!--날짜 넣기-->
+        <center>
+
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <h2 style="color:rgb(255,254,161);"><font size="7%">직류와 교류</h2></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+        <div id="sub1">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/907395555162988564/unknown.png" width="100%">
+            <p style=" color:rgb(255,254,161);"><font size="4em">직류 / 교류</p></font>
+        </div>
+        </center>
+        <div id="sub2">
+        <p style=" color:rgb(255,254,161);"><font size="4em">전류는 전자가 흐르는 흐름을 의미한다고 볼 수 있다. </p></font>
+        <p style=" color:rgb(255,254,161);"><font size="4em">이 때 직류는 이러한 전자의 흐름이 한 방향으로 일정하여 극성의 변화가 없는 형태의 흐름을 의미한다. </p></font>
+            <p style=" color:rgb(255,254,161);"><font size="4em">교류는 시간에 따라 전압의 크기가 변화하고 이에 따라 전자가 흐르는 방향이 왔다갔다 하기 때문에 극성이 변한다고 할 수 있다. </p></font>
+        <br>
+        </div>
+        <div id="main">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <center>
+            <p style=" color:rgb(255,254,161);"><font size="5em">직류, 교류의 역사</p></font>
+            <p style=" color:rgb(255,254,161);"><font size="3em">테슬라 vs 에디슨</p></font><br><br>
+            </center>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">직류의 옛 이름은 갈바니 전류로 에디슨이 고집한 송전 방식이다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">인류가 전기에 대해 연구하면서 처음으로 접하게 된 전류로 화학적으로 생성하기도 쉽고 간편하다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">실제 전자기기들은 대부분이 직류를 활용하기에 최초의 송전 방식은 직류로 선택되었다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">하지만 먼 거리를 전류를 먼 거리로 송전하기 위해선 전압을 높혀야만 했는데 이 때 전압을 높히는 기술은 있었지만 낮추는 기술은 부족해서 어쩔 수 없이 발전소를 많이 설치하는 형식으로 이 문제를 해결했다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">그런데 이런 문제를 해결한 테슬라의 교류 모터를 발명하고부터 직류 교류 전쟁이 시작되었다.</p></font>
+            <br>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">교류는 현재처럼 소비 지역에 와서 변압을 거치면 되기에 고전압으로 송전이 가능해서 장거리로 전기를 보낼 수 있다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">하지만 에디슨은 이러한 장점을 덮기 위해 그릇된 행동을 많이 하였다.</p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">대표적으로 코끼리를 교류 발전기를 이용하여 만들어지고 변압된 6600v로 감전사 시키면서 대중들에게 교류는 나쁜것이라는 인식을 심었다.</p></font>
+            <center><img src="https://cdn.discordapp.com/attachments/870316184506077204/907424638617944124/unknown.png" width="70%"></center><br><br>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">하지만 1839년, 시카고 만국 박람회장에서 교류방식이 반값이나 싼 가격으로 전기 사업권을 낙찰받게 되었다. </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em">그렇게 1893년 만국 박람회장을 교류방식으로 환하게 밝히면서 교류가 승리하게 되었다. </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em"> </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em"> </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em"> </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em"> </p></font>
+            <p style=" color:rgb(255,254,161); margin-left:1% margin-right:1%"><font size="4em"> </p></font>
+            <br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+    </div>
+    
+</body>
+</html>

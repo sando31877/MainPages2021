@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 페이지</title> 
+
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0; padding: 0;
+            font-family: 'Malgun Gotic', sans-serif;
+        }
+
+        a { text-decoration: none; }
+        img { border: 0; }
+        li { list-style: none; }
+        html { background: rgb(22,22,22); }
+    </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+<style> body { font-family: 'SunFlower';}</style>
+
+    <!--소리-->
+    <script>
+        function play1() {
+            var audio = document.getElementById("1_1_Theme");
+            audio.play();
+        }
+    </script>
+
+        <!-- 네비게이션 메뉴 -->
+        <style>
+            #main-navigation {
+                height: 30px;
+                background: rgb(255,149,0);
+                border-top: 1px solid #555555;
+                box-shadow: 1px 3px 3px rgba(34, 25, 25, 0.4);
+            }
+    
+            #main-navigation > ul {
+                overflow:hidden;
+                text-align: center;
+            }
+    
+            #main-navigation > ul > li {
+                display: inline;
+    
+                padding: 0 5px;
+    
+                line-height: 30px;
+                font-size: 13px;
+                color: #524D4D;
+                text-shadow: 0 1px 1px #444444;
+            }
+    
+            #main-navigation > ul > li:hover { 
+                background: #E1DFDF;
+                border-radius: 2px;
+            }
+        </style>
+
+
+    <!-- 종이 스타일 -->
+    <style>
+                #main-header {
+            height: 40px;
+            background: #444444;
+
+            position: relative;
+        }
+
+        .paper {
+            width: 190px;
+            margin-top: 10px;
+            margin-left: 10px;
+            padding: 15px 15px 0;
+            font-size: 11px;
+            background: Rgb(35,35,35);
+            box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+            border-radius: 10px;
+        }
+
+        .paper-content {
+            margin: 0 -15px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #555555;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .paper-description {
+            margin: 10px 0;
+        }
+
+        .paper-link {
+            display: block;
+            float: left;
+        }
+
+        .paper-text {
+            float: left;
+            width: 150px;
+            margin-left: 10px;
+        }
+    </style>
+    <!-- 라이트박스 -->
+    <style>
+        #darken-background {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%; 
+
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: scroll;
+        }
+
+        #lightbox {
+            width: 700px;
+            margin: 20px auto; padding: 15px;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 5px 5px rgba(34, 25, 25, 0.4);
+
+            text-align: center;
+        }
+
+        .user-information {  overflow: hidden;  text-align: left; }
+        .user-information-image { float: left; width: 70px; }
+        .user-information-text { float: right; width: 620px;  }
+        .lightbox-splitter { margin: 10px 0; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+
+        // 페이지
+        $(document).ready(function () {
+            // 이미지 로드 확인
+            $('#main-section').imagesLoaded(function () {
+                // jQuery Masonry 플러그인 적용
+                $('#main-section').masonry({
+                    itemSelector: '.paper',
+                    columnWidth: 230,
+                    isAnimated: true
+                });
+            });
+});
+
+        // 라이트 박스
+        $(document).ready(function () {
+            function showLightBox() {
+                // 라이트박스를 보이게 합니다.
+                $('#darken-background').show();
+                $('#darken-background').css('top', $(window).scrollTop());
+                // 스크롤을 못하게 합니다.
+                $('body').css('overflow', 'hidden');
+            }
+
+            function hideLightBox() {
+                // 라이트박스를 안 보이게 합니다.
+                $('#darken-background').hide();
+
+                // 스크롤을 하게 합니다.
+                $('body').css('overflow', '');
+            }
+
+            // 라이트박스 제거 이벤트
+            $('#darken-background').click(function () {
+                hideLightBox();
+            });
+
+              // 클릭 이벤트 연결
+            $('.paper').click(function () {
+                showLightBox();
+            });
+
+            // 라이트박스 제거 이벤트 보조
+            $('#lightbox').click(function (event) {
+                event.stopPropagation()
+            });
+        });
+    </script>
+    <style>        
+    body {
+        background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+        background-size: 100%;
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    #main { 
+        width: 81%;
+        margin: 0 auto;
+        color: rgb(230,230,230);
+        background-color: #171717;
+        border-radius: 30px;
+    }</style>
+
+</head> 
+<body> 
+
+
+<div id="main">
+        <!-- 헤더 --> 
+    <br>
+    <br>
+    <h1 align="center">사진</h1>
+    <br>
+    <br>
+
+
+    <audio src="" allow="autoplay" loop="loop" id="audio"></audio>
+
+    <audio src="https://cdn.discordapp.com/attachments/870316184506077204/906730912128045076/2_1_Lobby.mp3" loop="loop" type="audio/mp3" autoplay> </audio>
+
+    <hr>
+    <br>
+    
+    <!-- 본문 영역 --> 
+    <section id="main-section"> 
+         
+                 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907433963239403520/IMG_7743.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>전쟁기념관 앞</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>캬</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907433955517669396/IMG_7642.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>국립중앙박물관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>가고싶다..</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907434589532880896/IMG_7636.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>국립중앙박물관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>가고싶다..22</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907434586806575114/IMG_7615.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>국립중앙박물관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>가고싶다..333</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907434587695755374/IMG_7575.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>국립중앙박물관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>가고싶다..4444</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907434579621720104/IMG_7572.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>뇌절</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907435211921448980/IMG_8102.JPG" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>??: 여기로 가라니까</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>여길.. 건너가라고요..?</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://media.discordapp.net/attachments/870316184506077204/908682230849732638/IMG_0268.jpg?width=846&height=702" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>핑끄컴퓨터2</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>역시 컴퓨터는 삥크지</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907426865600430080/C6C70D55-D28A-4880-AB04-20C008810E7E.jpg" style="border-radius: 10px;"></a> 
+            </div> 
+            <p class="paper-description"><b>핑끄핑끄</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a>  
+                <p class="paper-text"><b>역시 컴퓨터는 핑크지</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/899144115915214888/image0.gif" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>징벌새</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>커엽</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/893144912592252938/B550M20Steel20Legend-2.png" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>b550m steel legend</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>b550m스레가 전원부는 많이 아쉬운데 너무 예쁨..</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/892782914398470174/KakaoTalk_20210929_231302060_08.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>Ryzen5 5600x!</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>퀘존에서 받은 5600x!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907427113597026334/IMG_9610.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>민트!</b></p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>이것도 되게 예쁘네</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/906713392474124288/3AB3F1E6-8467-4901-9CED-B44ADAB39A49.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>로지텍 럭키박스!</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>물론 g304 블랙..</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/906417120378769428/B11B8469-DFDD-466D-8862-4413AEA2995D.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>국립 중앙 박물관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>되게 크고 볼만한것도 많음. 또 가고싶다..</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ProjectMoon</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>그저.. 빛</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907426865109676042/69CCF9C4-68A9-4755-A1C3-E024E510BF77.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>호요요~</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>집으로 가는 길</b></p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907426947934613524/C230A6A9-AB90-4B2A-A66D-EA8182922A2E.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>세계 최초의 미니어쳐</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>고려시대 소꿉놀이 세트</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907427723666927616/IMG_9058.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>암드 자켓</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>암드 사랑해요!</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907427706193473546/IMG_8484.JPG" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>칼리</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>짱센누나</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907427473506062426/IMG_9251.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>일고</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>제주제일고등학교</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907427703051927552/IMG_8535.JPG" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>리사수</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>갓-갓갓</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907432584471011348/IMG_8115.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>햄햄팡팡</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>햄햄팡팡 하층 나올 때</b></p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907432575553904660/IMG_7972.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>임유범</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907433090278895636/IMG_7902.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>전쟁기념관</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>웅-장 &nbsp;&nbsp;이 때 엄청 더웠는데..</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907433090790596608/IMG_7904.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>전쟁기념관 옆</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>분위기 있네</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/907433582992162848/IMG_7774.jpg" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>일성이 자동차</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>전쟁기념관에 재밌는거 많던데 또 가고싶네</p> 
+            </div> 
+        </div> 
+         
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src="https://cdn.discordapp.com/attachments/870316184506077204/906398539750473728/IMG_9374.JPG" style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>호요요~</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>집으로 가는 길</p> 
+            </div> 
+        </div> 
+         
+
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        <div class="paper"> 
+            <div class="paper-holder"> 
+                <a><img width="100%" src=" " style="border-radius: 10px;" /></a> 
+            </div> 
+            <p class="paper-description"><b>ㅇㅇ</p> 
+            <div class="paper-content"> 
+                <a class="paper-link" href="#"><img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" width="30px" style="border-radius: 10px;" /></a> 
+                <p class="paper-text"><b>ㅇㅇ22</p> 
+            </div> 
+        </div> 
+        
+
+    </section> 
+    <!-- 라이트박스 --> 
+
+</body> 
+</html> 

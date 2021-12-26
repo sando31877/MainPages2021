@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromeMainPage</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 38%;
+            margin: 0 auto;
+            margin-left: 8%;
+            overflow: hidden;
+            float:left;
+        }
+        #sub2 {
+            width: 38%;
+            margin: 0 auto;
+            margin-right: 2%;
+            float:right;
+            margin-left: 8%;
+            margin-right: 8%;
+            
+        }
+            .RightBar {
+                background: #171717;
+                position: fixed;
+                right: 0; top: 50px; bottom: 50px;
+                width: 80px;
+                border-radius: 30px;
+            }
+            .circle {
+                position: absolute;
+                width: 40px; height: 40px;
+                border-radius: 50% 50%
+            }
+            #side10{
+                right: 24px;
+                top: 10%;
+            }
+            #side20{
+                right: 24px;
+                top: 20%;
+            }
+            #side30{
+                right: 24px;
+                top: 30%;
+            }
+            #side40{                                        <!--만지지마-->
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 39%;
+            }
+            #side50{
+                right: 24px;
+                top: 50%;
+            }
+            #side60{
+                right: 24px;
+                top: 60%;
+            }
+            #side70{
+                right: 24px;
+                top: 70%;
+            }
+            #side80{
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 80%;
+            }
+            #side90{
+                right: 24px;
+                top: 90%;
+            }
+    </style>
+</head>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://www.projectmoon.kr/main/index.php'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" loop="-1" style="width: 100%; vertical-align: middle">
+        </div>
+
+    </div>
+
+    <div id="main">
+        <!--날짜 넣기-->
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em">2021년 11월 6일 - 강민혁 </p></font></a>
+        <!--날짜 넣기-->
+        <center>
+
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <h2 style="color:rgb(255,254,161);"><font size="7%">O-5681 지부에 오신것을 환영합니다.</h2></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+        <div id="sub1">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906398539750473728/IMG_9374.JPG" width="100%">
+            <p style=" color:rgb(255,254,161);"><font size="4em">호요요~</p></font>
+        </div>
+        <div id="sub2">
+        <p style=" color:rgb(255,254,161);"><font size="4em">날개야 다시 돋아라. <br>날자. 날자. 날자. 한 번만 더 날자꾸나. <br>한 번만 더 날아보자꾸나. </p></font>
+        <br>
+        </div>
+        <br>
+        <div id ="sub2">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <div id="sub1">
+            <center>
+                <details>
+                    <summary style="margin-left: 0px; color:rgb(255,254,161);"><font size="5em"><b>LobotomyCorp</summary></b></font>
+                    <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">FACE THE FEAR, BUILD THE FUTURE.</p></font><br><br>
+                    <details>
+                        <summary style="margin-left: 10px; color:rgb(255,254,161);"><font size="5em"><b>상층부</summary></b></font>
+                        <br><br>
+    
+                        <details>
+                            <summary style="margin-left: 15px; color:rgb(255,254,161);"><font size="4em"><b>지휘팀</summary></b></font>
+                            <br>
+                            <img src="https://w.namu.la/s/de19a7dcab2e190dd80e62ff22a25027e9d2c836bcfbd542ae8474528feab7b950a5971faf7027bc2e3c31cbc59903fc2442ee3a94d88d58aefb758c718a64672b31144430f4688dc3439deaaecde79a0527303d8ef53b7557d804d9368ce9d15d9c5b8d4057e5fa2387efcc2035a9fb" style="width:100px;">
+                            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">말쿠트 (Malkuth)</p></font>
+                            <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161);">직원 및 환상체들을 감시하고 환상체 관리를 위한 지휘를 내리거나 기획을 하는 부서입니다. 이 부서에서는 격리소 곳곳을 비춰주는 CCTV들을 통해 즉각적인 명령을 내리거나 지휘를 통솔합니다. 이들은 자부심이 매우 세고 거만하기 때문에 다른 부서들과 사이가 원만하진 않습니다.</p></a>
+                        </details>
+                        <br>
+    
+                        <details>
+                            <summary style="margin-left: 15px; color:rgb(255,254,161);"><font size="4em"><b>정보팀</summary></b></font>
+                            <br>
+                            <img src="https://w.namu.la/s/9dcc35bc11eecd6affbe8b9c0e767fdb0e7a9521cea157ee975a4061e12d6c9b1db03ddcaf6280078d6d15cc57f6003198059d14cb7a31c300da2cf32a8a4ada25c69034639d10ec6f95360e7826289bdc998decd6637dbebc9d2493a176ca52c9d8abb6bf6cd8c8a47083b9226a6a55" style="width:100px;">
+                            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">예소드 (Yesod)</p></font>
+                            <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161);">환상체들의 위험도와 특징들을 분류하고 이에 대한 해결법을 강구해내는 부서입니다. 복지 관리팀에서부터 나오는 관찰 기록이나 상담 기록들을 토대로 해결법을 연구해 나갑니다. 좀 더 명확하고 안전한 [해결법]을 위해 각종 실험들을 진행하기도 합니다. 이들이 조사한 모든 환상체 정보들은 그저 책상머리 앞에서 생겨났다기 보단 다 오랜 관찰과 수많은 희생 끝에 얻어진 값진 노력 덕분입니다.</p></a>
+                        </details>
+                        <br>
+    
+                        <details>
+                            <summary style="margin-left: 15px; color:rgb(255,254,161);"><font size="4em"><b>교튝팀</summary></b></font>
+                            <br>
+                            <img src="https://ww.namu.la/s/df574ef855dd1b08c202a468c564a4065683166e8647d775bc942afdcaa6cf174ca901bc693f998a05318d4da322c66f87d91ca7a2b31518326e9f9855b0af240b5b4d890d9a9e70ec38be0df8c00baa18cd3ecbb841612f41aa5fd1128ab83ab414a450b14eb5cf3161aa0e4eb17d6f" style="width:100px;">
+                            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">호드 (Hod)</p></font>
+                            <p style="margin-left: 30px; margin-right: 30px; color:rgb(255,254,161);">회사의 규율과 각종 관리지침을 작성 및 검토하는 부서입니다. 더불어 직원들이 부서를 옮기더라도 적응할 수 있도록 도와주는 범용적 훈련을 담당하고 있습니다.</p></a>
+                        </details>
+                        <br>
+    
+                    </details>
+                    <br><br>
+    
+            </details>
+            </center>
+            </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="main">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906713348538789950/7E1588B2-6B7A-43F8-8539-25ECC342B720.jpg" style="width:50%;">
+            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">롭젤라</font>
+        <br>
+        <br>
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906396042226974720/5A907A1E-FFE1-426E-91C1-3F719DF85CFD.jpg" style="width:50%;">
+            <p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">길 잃은 라젤라</font>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">21년 11월 9일 오른쪽 기흉터져서 입원함</font>
+        <br><p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">근데 할게 없어서 이거 하는중</font>
+        <br><p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">아아아아아ㅏ아아ㅏ심심하다</font>
+        <br><p style="margin-left: 13px; color:rgb(255,254,161);"><font size="4em">그래도 오랜만에 푹 잘 수 있어서 좋네</font>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><p style="color:rgb(255,254,161);"><font size="4em">21년 11월 12일 드뎌 퇴원했다<br> 입원할 때 공부를 빡세게 해서 기분이 매우매우매우 좋음<br>집에 퀘존에서 나눔받은 글카 지지대도 설치하고 글카 바이오스 터져서 그거 해결하느라 조금 뻘뻘거리기도 하고 암튼 기분 좋네</font>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+    </div>
+    
+</body>
+</html>

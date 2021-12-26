@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportMainPage</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 65%;
+            margin: 0 auto;
+            overflow: hidden;
+            float:left;
+            border-right: 2px solid rgb(255,254,161);
+        }
+        #sub2 {
+            width: 34%;
+            margin: 0 auto;
+            overflow: hidden;
+            float:right;
+        }
+            .RightBar {
+                background: #171717;
+                position: fixed;
+                right: 0; top: 50px; bottom: 50px;
+                width: 80px;
+                border-radius: 30px;
+            }
+            .circle {
+                position: absolute;
+                width: 40px; height: 40px;
+                border-radius: 50% 50%
+            }
+            #side10{
+                right: 24px;
+                top: 10%;
+            }
+            #side20{
+                right: 24px;
+                top: 20%;
+            }
+            #side30{
+                right: 24px;
+                top: 30%;
+            }
+            #side40{                                        <!--만지지마-->
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 39%;
+            }
+            #side50{
+                right: 24px;
+                top: 50%;
+            }
+            #side60{
+                right: 24px;
+                top: 60%;
+            }
+            #side70{
+                right: 24px;
+                top: 70%;
+            }
+            #side80{
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 80%;
+            }
+            #side90{
+                right: 24px;
+                top: 90%;
+            }
+    </style>
+    <style>
+        .updown {
+            border: 3px solid rgb(255,254,161);
+            width: 0.1px;
+            height: 500px;
+        }
+    </style>
+
+
+</head>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://www.projectmoon.kr/main/index.php'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" loop="-1" style="width: 50%; vertical-align: middle">
+        </div>
+
+    </div>
+
+    <div id="main">
+        <!--날짜 넣기-->
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em">2021년 0월 0일 - 강민혁 </p></font></a>
+        <!--날짜 넣기-->
+
+
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <h2 style="color:rgb(255,254,161);" align="center"><font size="7%">보고서</h2></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+        <div id="sub1">
+            <p style=" color:rgb(255,254,161);" align="center"><font size="6em">교과</p></font>
+            <br>
+            <p style=" color:rgb(255,254,161);" align="center"><font size="4em"></p></font>
+            <br>
+            <br>
+            <center>
+                    <details style="float: right;">
+                        <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">&nbsp;&nbsp;&nbsp;&nbsp;국어&nbsp;&nbsp;&nbsp;&nbsp;</summary></font><br>
+                    </details>
+                    <details style="float: right;">
+                        <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">&nbsp;&nbsp;&nbsp;&nbsp;과학&nbsp;&nbsp;&nbsp;&nbsp;</summary></font>
+                        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_과학_CMCAcToDc.html" style="margin-left: 13px; color:rgb(255,254,161);">CMCAcToDc</a><br>
+                        <br>
+                    </details>
+                    <details style="float: right;">
+                        <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">&nbsp;&nbsp;&nbsp;&nbsp;사회&nbsp;&nbsp;&nbsp;&nbsp;</summary></font><br>
+                    </details>
+                    <details style="float: right;">
+                        <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">&nbsp;&nbsp;&nbsp;&nbsp;역사&nbsp;&nbsp;&nbsp;&nbsp;</summary></font>
+                        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_역사_국립중앙박물관.html" style="margin-left: 13px; color:rgb(255,254,161);">국립중앙박물관</a><br>
+                        <br>
+                        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_역사_국립중앙박물관.html" style="margin-left: 13px; color:rgb(255,254,161);">역사 수행</a><br>
+                        <br>
+                    </details>
+                    <details style="float: right;">
+                        <summary style="margin-left: 13px; color:rgb(255,254,161);"><font size="5em">&nbsp;&nbsp;&nbsp;&nbsp;정보&nbsp;&nbsp;&nbsp;&nbsp;</summary></font>
+                        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_정보_html기초.html" style="margin-left: 13px; color:rgb(255,254,161);">HTML5 기초</a><br>
+                        <br>
+                        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_정보_수행평가1.html" style="margin-left: 13px; color:rgb(255,254,161);">정보 수행</a><br>
+                        <br>
+                    </details>
+                </details>
+                <br>
+            </details>
+        </div>
+        <div id="sub2">
+            <p style=" color:rgb(255,254,161);" align="center"><font size="6em">비교과</p></font>
+            <center>
+        <br>
+        <br>
+        <br>
+        <br>
+            <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\2. 과목\2. 과목_비교과_돌담조명만들기.html" style=" color:rgb(255,254,161);">돌담 조명 만들기</a><br>
+            <br>
+            <details>
+                <summary style=" color:rgb(255,254,161);"><font size="4em">4.3사건</summary></font><br>
+            </details>
+        </center>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보고서_교과_역사_전쟁기념관</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+
+
+    <style>
+                #main-section {
+            width: 920px;
+            margin: 0 auto;
+        }
+
+
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 38%;
+            margin: 0 auto;
+            margin-left: 8%;
+            overflow: hidden;
+            float:left;
+        }
+        #sub2 {
+            width: 38%;
+            margin: 0 auto;
+            margin-right: 2%;
+            float:right;
+            margin-left: 8%;
+            margin-right: 8%;
+            
+        }
+        #sub3 {
+            width: 30%;
+            float:left;
+
+        }
+            .RightBar {
+                background: #171717;
+                position: fixed;
+                right: 0; top: 50px; bottom: 50px;
+                width: 80px;
+                border-radius: 30px;
+            }
+            .circle {
+                position: absolute;
+                width: 40px; height: 40px;
+                border-radius: 50% 50%
+            }
+            #side10{
+                right: 24px;
+                top: 10%;
+            }
+            #side20{
+                right: 24px;
+                top: 20%;
+            }
+            #side30{
+                right: 24px;
+                top: 30%;
+            }
+            #side40{                                        <!--만지지마-->
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 39%;
+            }
+            #side50{
+                right: 24px;
+                top: 50%;
+            }
+            #side60{
+                right: 24px;
+                top: 60%;
+            }
+            #side70{
+                right: 24px;
+                top: 70%;
+            }
+            #side80{
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 80%;
+            }
+            #side90{
+                right: 24px;
+                top: 90%;
+            }
+
+
+            .paper {
+            width: 90%;
+            margin-top: 10px;
+            padding: 15px 15px 0;
+            font-size: 15px;
+            background: #202020;
+            box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        }
+
+        .paper-content {
+            margin: 0 -15px;
+            margin-top: 1%;
+            padding: 10px 15px;
+            background: #232323;
+            overflow: hidden;
+        }
+
+        .paper-description {
+            margin: 4% 0;
+        }
+
+        .paper-link {
+            display: block;
+            float: left;
+        }
+
+        .paper-text {
+            float: left;
+            width: 100%;
+            margin-left: 3%;
+        }
+
+    </style>
+</head>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/906715192996540436/unknown.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://www.projectmoon.kr/main/index.php'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" loop="-1" style="width: 100%; vertical-align: middle">
+        </div>
+
+    </div>
+
+    <div id="main">
+        <!--날짜 넣기-->
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em">2021년 7월 21일 ~ 22일 - 강민혁 </p></font></a>
+        <!--날짜 넣기-->
+        <center>
+
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <h2 style="color:rgb(255,254,161);"><font size="7%">전쟁 기념관</h2></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+        <div id="sub1">
+            <img src=" " width="100%">
+            <p style=" color:rgb(255,254,161);"><font size="3em">전쟁 기념관 전경</p></font>
+        </div>
+        <div id="sub2">
+        <p style=" color:rgb(255,254,161);"><font size="5em">서울특별시 용산구 전쟁 기념관</p></font>
+        <p style=" color:rgb(255,254,161);"><font size="3em">7월 21일 ~ 7월  22일</p></font>
+        <br>
+        </div>
+        </center>
+        <div id="sub1">
+        <p style=" color:rgb(255,254,161); margin-left:10%;"><font size="4em">동기: 1학기 한국사 시간에 배운 여러가지 유물들(금동대향로, 반가사유상 등)을 직접 보며 느끼고 싶어서 국립 중앙 박물관에 가게 되었다.</p></font>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        <div id="main">
+        <center>
+        <p style=" color:rgb(255,254,161);"><font size="5em">내용</p></font>
+        </center>
+        <Br>
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em">선사시대 부분을 돌아보며 여러 유물들을 보았다. 보다보니 충격적인 것을 보았다. 실제 사람의 유골이였는데 정갈하게 있는것을 보아 그 당시에도 장례식 등의 행위를 한 것 같다고 생각했다.</p></font>
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em">그 당시 유물도 보았는데 대부분이 석기 혹은 토기였다. 그 중 빗살무늬토기는 한반도 전역에 분포해있다는것을 보니 교통 통신이라고 해야 발로 걷는것과 입으로 소통하는것 밖에는 없었을텐데 이렇게 분포했다는것이 신기했다. </p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em">그 다음으로 가니 매우 귀여운 유물을 보았다. 소꿉도구라고 하는 유뮬인데 식기류 등이 미니어쳐처럼 작게 되어있었다. 큰건 한주먹 정도에 작은건 엄지손가락 정도로 그 당시에도 이런게 있었다는 것이 놀라웠다.</p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em">계속 둘러보니 조선부분이 나왔다. 한국사에서 가장 많은 부분을 차지한다고 해도 될 정도로 사료가 넘처나다보니 관련 유물 및 볼거리가 되게 많았다. 입구로 들어가니 조선시대의 피아노인 편경이 반겨주고 있었다. 편경 소리를 들어보니 매우 청아하고 맑았다. 이러한 악기가 잘 활용되지 못하는 것 같아서 아쉽다고 느꼈다. 그리고 둘러보니 임진왜란 부분이 눈에 띄었다. 임진왜란 관련 영상이 보였는데 당시 사람들이 얼마나 힘들었는지 조금이나마 알 수 있었다.</p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em"></p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em"></p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em"></p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em">선사시대부터 다시 둘러보았다. 처음에 갔을때와는 조금은 다른 느낌이 들었다. 분명 예천에 천천히 둘러봤다고 생각했는데 놓친 부분들이 꽤 보였다. 이런 이유로 박문관들은 계속해서 와도 부족하다고 생각한다.</p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em"></p></font>
+
+        <p style=" color:rgb(255,254,161); margin-left:12%; margin-right:12%"><font size="4em"></p></font>
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    
+</body>
+</html>

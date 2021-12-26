@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap" rel="stylesheet">
+
+    <style> body { font-family: 'SunFlower';}</style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/EHsKRMPUUAAv8hJ.jpg:large');
+            background-size: 100%;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #main { 
+            width: 70%;
+            margin: 0 auto;
+            color: rgb(230,230,230);
+            background-color: #171717;
+            border-radius: 30px;
+        }
+        #sub1 {
+            width: 38%;
+            margin: 0 auto;
+            margin-left: 8%;
+            overflow: hidden;
+            float:left;
+        }
+        #sub2 {
+            width: 38%;
+            margin: 0 auto;
+            margin-right: 2%;
+            float:right;
+            margin-left: 8%;
+            margin-right: 8%;
+            
+        }
+            .RightBar {
+                background: #171717;
+                position: fixed;
+                right: 0; top: 50px; bottom: 50px;
+                width: 80px;
+                border-radius: 30px;
+            }
+            .circle {
+                position: absolute;
+                width: 40px; height: 40px;
+                border-radius: 50% 50%
+            }
+            #side10{
+                right: 24px;
+                top: 10%;
+            }
+            #side20{
+                right: 24px;
+                top: 20%;
+            }
+            #side30{
+                right: 24px;
+                top: 30%;
+            }
+            #side40{                                        <!--만지지마-->
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 39%;
+            }
+            #side50{
+                right: 24px;
+                top: 50%;
+            }
+            #side60{
+                right: 24px;
+                top: 60%;
+            }
+            #side70{
+                right: 24px;
+                top: 70%;
+            }
+            #side80{
+                background: rgb(250,250,250);
+                right: 24px;
+                top: 80%;
+            }
+            #side90{
+                right: 24px;
+                top: 90%;
+            }
+    </style>
+</head>
+
+<body>  
+    <!--<audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" hidden="true" loop="true" autostart="true" autoplay="true" volume="0.3"></audio>
+    -->
+    <div class="RightBar">
+
+        <div id ="side10" style="width: 50%; text-align: center" class="circle">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/903249913075339315/youtube.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://youtube.com'">
+        </div>
+        <div id ="side20" style="width: 50%; text-align: center" class="circle">
+            <img src="https://blog.kakaocdn.net/dn/deyYb9/btqYIkUYY9Q/QSGt3wgfr3yWrgUJnXD3ik/img.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://music.youtube.com'">
+        </div>
+        <div id ="side30" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/quasarzone-profile_image-394acc8f420adc36-300x300.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://quasarzone.com'">
+        </div>
+        <div id ="side40" style="width: 50%; text-align: center" class="circle">
+            <img src="https://static.wikia.nocookie.net/lobotomycorp/images/b/b0/Unnamed_%2896%29.png/revision/latest?cb=20210923202851" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://fakeupdate.net/win10ue/'">
+        </div>
+        <div id ="side50" style="width: 50%; text-align: center" class="circle">
+            <img src="https://www.projectmoon.kr/img/com/logo.png" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://www.projectmoon.kr/main/index.php'">
+        </div>
+        <div id ="side60" style="width: 50%; text-align: center" class="circle">
+            <img src="https://askedtech.com/api/edtech/admin/product/image.jpg?id=5716" style="width: 100%; vertical-align: middle" OnClick="location.href ='https://space.malangmalang.com/drive">
+        </div>
+        <div id ="side90" style="width: 50%; text-align: center" class="circle">
+            <audio src="https://cdn.discordapp.com/attachments/870316184506077204/893438608533508116/1_1_Theme.mp3" controls="controls" loop="-1" style="width: 100%; vertical-align: middle">
+        </div>
+
+    </div>
+
+    <div id="main">
+        <!--날짜 넣기-->
+        <a href="E:\vscode\1. MainProject\3. Chrome 시작페이지\9. 기타\9. 이름 눌렀을때.html" style=" color:rgb(255,254,161); margin-left:15px;" align="right" ><font size="1em">2021년 11월 12일 - 강민혁 </p></font></a>
+        <!--날짜 넣기-->
+        <center>
+
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <h2 style="color:rgb(255,254,161);"><font size="7%">자동으로 라면 끓여주는 장치</h2></font>
+        <br>
+        <hr style="border: solid 5px rgb(255,254,161);">
+        <br>
+        <br>
+        <br>
+        <div id="sub1">
+            <img src="https://cdn.discordapp.com/attachments/870316184506077204/908573379278274570/9f15f198aab1b14c8aa47e96a91a9d03331ecb7b5b892c803159d39b0d77ab4be30e2f15f66191284d7dad8371989329cc1c80810745e980a6949ae5e3589df64d239a3ca63c5a7574a4ad2656633c8c.png" width="100%">
+            <p style=" color:rgb(255,254,161);"><font size="4em">주로 게임할때 먹는 라면</p></font>
+        </div>
+        </center>
+        <div id="sub2">
+        <p style=" color:rgb(255,254,161);" align="center"><font size="5em">동기</p></font>
+        
+        <p style=" color:rgb(255,254,161);"><font size="4em">저의 경우 라면은 게임을 하거나 다른 일을 하는 도중 배고파져서 끓일 때가 많습니다.<br><br>
+            하지만 이럴 경우 하는 일에 열중한 나머지 끓이고 있는 라면을 깜박하거나 라면을 끓이는 것 때문에 하는 일에 문제가 생기는 경우가 많습니다.<br><br>
+            이러한 이유로 라면 재료만 있으면 자동으로 라면을 끓여주는 기계를 만드려고 합니다.<br><br>
+            </p></font>
+            </div>
+        <br>
+        
+        <hr>
+        <br>
+        <br>
+        <div id="main">
+
+            <Br>
+            <Br>
+                <p style=" color:rgb(255,254,161);" align="center"><font size="5em">예상 결과</font></p>
+                <p style=" color:rgb(255,254,161);"><font size="4em">웹에서 라면을 끓이라는 명령을 받으면 다른 용기에 쌓여있는 면, 스프를 일정 양 덜어서 올려져있는 냄비 위에 넣는다. 그 후 물을 적정량 넣고 불을 켠다. 물 온도가 100도가 될 시 3분 카운트를 한 후 3분이 지나면 알람이 울려 사용자에게 알려준다.</font>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+    </div>
+    
+</body>
+</html>
